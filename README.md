@@ -6,6 +6,17 @@
 
 ---
 
+## Daftar Progres Sesi Perkuliahan
+
+| Sesi | Topik Materi | Status | Implementasi pada Proyek BrandKu |
+| :--- | :--- | :---: | :--- |
+| **Sesi 1** | *Intro to Frontend* | Selesai | Fondasi frontend, struktur project, setup environment dasar. |
+| **Sesi 2** | *Tailwind + Intro React, Components + Routing* | Selesai | Setup Tailwind CSS v4, struktur modular komponen (`Header`, `Footer`, `Hero`), multi-page routing (`react-router`: `/`, `/about`, `/pricing`). |
+| **Sesi 3** | *Props + use-state* | Selesai | Passing props data (`featureData`), state management interaktif dengan `useState` pada komponen navigasi & UI card. |
+| **Sesi 4** | *use-effect + api-integration, local storage* | Selesai | Custom hook `useLocalStorageState` (sinkronisasi state ke `localStorage`), `useEffect` async data fetch FakeStore API, dan dynamic category filtering. |
+
+---
+
 ## Tugas: Public API Implementation (Sesi: use-effect + api)
 
 Implementasi integrasi Public API pada proyek e-commerce katalog produk **BrandKu** menggunakan **React**, **Vite**, dan **Tailwind CSS v4**.

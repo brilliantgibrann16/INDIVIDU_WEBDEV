@@ -15,7 +15,7 @@ import { Routes, Route } from "react-router";
 import { featureData } from "./data/features";
 
 const App = () => {
-  const [features, setFeatures] = useState(featureData);
+  const [features] = useState(featureData);
 
   return (
     <>

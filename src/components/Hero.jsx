@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
 function Hero() {

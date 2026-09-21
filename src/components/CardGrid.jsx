@@ -8,28 +8,35 @@ function CardGrid() {
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const [reloadTrigger, setReloadTrigger] = useState(0);
+  const getDataAsync = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await getData();
+      setProducts(data);
+    } catch (err) {
+      console.error(err);
+      setError("Gagal memuat produk. Silakan periksa koneksi internet.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    let ignore = false;
-    getData()
-      .then((data) => {
-        if (!ignore) {
-          setProducts(data);
-          setLoading(false);
-        }
-      })
-      .catch(() => {
-        if (!ignore) {
-          setError("Gagal memuat produk. Silakan periksa koneksi internet Anda.");
-          setLoading(false);
-        }
-      });
-
-    return () => {
-      ignore = true;
+    const loadData = async () => {
+      try {
+        const data = await getData();
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+        setError("Gagal memuat produk. Silakan periksa koneksi internet.");
+      } finally {
+        setLoading(false);
+      }
     };
-  }, [reloadTrigger]);
+
+    loadData();
+  }, []);
 
   const categories = ["all", ...new Set(products.map((p) => p.category))];
 
@@ -99,11 +106,7 @@ function CardGrid() {
         <div className="text-center py-12 bg-red-50 rounded-2xl border border-red-100 p-6 max-w-md mx-auto">
           <p className="text-red-600 font-medium mb-4">{error}</p>
           <button
-            onClick={() => {
-              setLoading(true);
-              setError(null);
-              setReloadTrigger((c) => c + 1);
-            }}
+            onClick={getDataAsync}
             className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm cursor-pointer"
           >
             Coba Lagi

@@ -1,61 +1,47 @@
-# INDIVIDU_WEBDEV
+# Tugas Individu - Web Application Development
+
 **Nama**: Brilliant Gibran Adhinata J.  
 **NIM**: 25110300019  
-**Mata Kuliah**: Web Application Development  
+**Mata Kuliah**: Web Application Development (WAD04)  
 **Program Studi**: S1 Ilmu Komputer — Universitas Cakrawala  
 
 ---
 
-## Daftar Progres Sesi Perkuliahan
+## Deskripsi Project
+Project ini dibuat untuk memenuhi tugas mata kuliah Web Application Development, yaitu implementasi **Public API** ke dalam aplikasi web berbasis **React + Vite** dan **Tailwind CSS**.
 
-| Sesi | Topik Materi | Status | Implementasi pada Proyek BrandKu |
-| :--- | :--- | :---: | :--- |
-| **Sesi 1** | *Intro to Frontend* | Selesai | Fondasi frontend, struktur project, setup environment dasar. |
-| **Sesi 2** | *Tailwind + Intro React, Components + Routing* | Selesai | Setup Tailwind CSS v4, struktur modular komponen (`Header`, `Footer`, `Hero`), multi-page routing (`react-router`: `/`, `/about`, `/pricing`). |
-| **Sesi 3** | *Props + use-state* | Selesai | Passing props data (`featureData`), state management interaktif dengan `useState` pada komponen navigasi & UI card. |
-| **Sesi 4** | *use-effect + api-integration, local storage* | Selesai | Custom hook `useLocalStorageState` (sinkronisasi state ke `localStorage`), `useEffect` async data fetch FakeStore API, dan dynamic category filtering. |
+Pada project **BrandKu** ini, data produk diambil secara online dari [FakeStore API](https://fakestoreapi.com) (`https://fakestoreapi.com/products`) menggunakan library `axios`.
 
 ---
 
-## Tugas: Public API Implementation (Sesi: use-effect + api)
-
-Implementasi integrasi Public API pada proyek e-commerce katalog produk **BrandKu** menggunakan **React**, **Vite**, dan **Tailwind CSS v4**.
-
-### Sumber API
-Public API yang digunakan: [FakeStore API](https://fakestoreapi.com)  
-Endpoint: `https://fakestoreapi.com/products`
-
-### Fitur yang Diimplementasikan
-1. **Asynchronous Data Fetching**: Mengambil data produk secara otomatis saat komponen dimuat menggunakan `axios` dan hook `useEffect`.
-2. **Pengolahan & Pemrosesan Data**:
-   - Ekstraksi kategori unik secara dinamis dari response API menggunakan `Set`.
-   - Filter produk interaktif berdasarkan kategori (*Semua Produk*, *Men's Clothing*, *Jewelery*, *Electronics*, *Women's Clothing*).
-3. **Penyajian UI Komponen**:
-   - Loading skeleton state saat data sedang di-fetch.
-   - Error handling state jika terjadi kendala koneksi ke API.
-   - Grid Card responsif yang menampilkan gambar produk, judul, tag kategori, rating bintang, jumlah ulasan, dan format harga.
+## Fitur yang Diterapkan
+1. **Integrasi Public API**: Mengambil data produk dari FakeStore API menggunakan `useEffect` dan `axios` saat halaman pertama kali dimuat.
+2. **Filter Kategori Produk**: Pengguna dapat memfilter tampilan produk berdasarkan kategori (*electronics*, *jewelery*, *men's clothing*, *women's clothing*, dan *semua produk*).
+3. **Card Produk Dinamis**: Menampilkan data yang didapat dari API (gambar produk, judul, kategori, rating, harga, dan deskripsi) menggunakan komponen React modular dan props.
+4. **Local Storage (Sesi 4)**: Menyimpan state angka interaktif pada tombol Hero ke `localStorage` agar tidak hilang saat halaman di-refresh.
+5. **Loading & Error State**: Menampilkan indikator loading saat data sedang diambil serta pesan error apabila koneksi gagal.
 
 ---
 
-### Bukti Pengumpulan Tugas
+## Cara Menjalankan Project
 
-#### 1. Tampilan Hasil di Browser (Data Muncul Rapi)
+1. Pastikan sudah menginstall Node.js di komputer.
+2. Buka terminal di folder project ini, lalu install dependensi:
+   ```bash
+   npm install
+   ```
+3. Jalankan development server:
+   ```bash
+   npm run dev
+   ```
+4. Buka tautan lokal yang muncul di terminal (biasanya `http://localhost:5173`) pada browser.
+
+---
+
+## Bukti Pengerjaan (Screenshots)
+
+### 1. Tampilan UI di Browser
 ![Screenshot UI](screenshots/screenshot_ui.png)
 
-#### 2. Kode Program (Fetch & Pemrosesan Data)
+### 2. Bagian Kode Program (Fetch & Filter Data)
 ![Screenshot Kode Program](screenshots/screenshot_code.png)
-
----
-
-### Menjalankan Proyek Secara Lokal
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Jalankan development server
-npm run dev
-
-# 3. Build untuk produksi
-npm run build
-```
